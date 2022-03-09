@@ -13,6 +13,10 @@ provider "aws" {
   region = "us-west-1"
 }
 
+resource "aws_s3_bucket" "bucket" {
+  bucket = var.bucket
+}
+
 module "apache" {
     source  = "m-satishkumar/apache-esample/aws"
     version = "1.0.0"

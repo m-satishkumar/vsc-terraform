@@ -1,3 +1,8 @@
+variable "bucket" {
+    type = string
+    default = "12340flfkg8402304"
+}
+
 variable "vpc_id" {
     type = string
 }
