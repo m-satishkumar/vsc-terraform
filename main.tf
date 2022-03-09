@@ -1,13 +1,25 @@
 terraform {
+    backend "remote" {
+      hostname = "app.terraform.io"
+      organization = "demo-lab-test"
 
+      workspaces {
+          name = "vsc-terraform"
+      }
+    }
 }
 
 provider "aws" {
   region = "us-west-1"
 }
 
+# module "apache-esample" {
+#   # insert the 3 required variables here
+# }
+
 module "apache" {
-    source = ".//terraform-aws-apache-example"
+    source  = "m-satishkumar/apache-esample/aws"
+    version = "1.0.0"
     vpc_id = var.vpc_id
     my_ip_with_cidr = var.my_ip_with_cidr
     public_key = var.public_key
