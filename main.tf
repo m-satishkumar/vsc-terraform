@@ -13,10 +13,6 @@ provider "aws" {
   region = "us-west-1"
 }
 
-# module "apache-esample" {
-#   # insert the 3 required variables here
-# }
-
 module "apache" {
     source  = "m-satishkumar/apache-esample/aws"
     version = "1.0.0"
